@@ -17,13 +17,13 @@ const Galery = ({ images }) => {
               <img
                 src={item.src}
                 alt="plane"
-                className="hover:scale-105 transition"
+                className="w-full h-28 object-cover hover:scale-105 transition"
               />
             </SplideSlide>
           ))}
         </Splide>
       ) : (
-        <div className="h-40 bg-zinc-200/10 grid place-items-center rounded-2xl text-zinc-300">
+        <div className="h-28 bg-zinc-200/10 grid place-items-center rounded-2xl text-zinc-300">
           <span>Fotoğraf içeriği bulunmuyor</span>
         </div>
       )}

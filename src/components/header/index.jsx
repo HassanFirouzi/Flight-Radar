@@ -10,7 +10,7 @@ const Header = () => {
       <Link href="/" className="flex items-center gap-3 hover:scale-[1.02]">
         <img src="logo1.png" alt="logo" width={40} className="drop-shadow-md" />
         <h2 className="text-[21px] font-semibold text-text">
-          HasPheer <span className="text-primary">Radar</span>
+          Flight <span className="text-primary">Radar</span>
         </h2>
       </Link>
 

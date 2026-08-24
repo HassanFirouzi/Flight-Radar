@@ -25,7 +25,7 @@ const Modal = () => {
 
   return (
     <div className="fixed top-0 left-0 h-screen z-9999 flex items-center max-sm:justify-center max-sm:inset-0 max-sm:backdrop-blur-xs">
-      <div className="w-90 max-sm:w-[70%] min-h-10/12 ml-4 gradient text-white rounded-3xl flex flex-col p-5 shadow-2xl mt-10 overflow-y-auto">
+      <div className="w-72 max-sm:w-[70%] ml-4 gradient text-white rounded-3xl flex flex-col p-3.5 shadow-2xl mt-10">
         <Head isLoading={isLoading} error={error} info={info} />
 
         {isLoading ? (
@@ -34,8 +34,8 @@ const Modal = () => {
           <Error message={error} />
         ) : (
           info && (
-            <div className="flex flex-col gap-5 mt-5">
-              <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-3 mt-3">
+              <div className="flex flex-col gap-3">
                 <Galery images={info.aircraft.images} />
 
                 <Airport airportData={info.airport} />
