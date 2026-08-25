@@ -14,14 +14,36 @@ const Map = () => {
     (store) => store.detailReducer,
   );
 
-  // 10 saniyede bir tekrar api'dan güncel verileri al
+  // 30 saniyede bir tekrar api'dan güncel verileri al
   useEffect(() => {
-    const id = setInterval(() => dispatch(getFlights()), 10000);
+    let id;
+
+    const start = () => {
+      id = setInterval(() => dispatch(getFlights()), 30000);
+    };
+    const stop = () => {
+      clearInterval(id);
+    };
+
+    // sekme arka plandayken isteği durdur, geri gelince
+    // güncel veriyi al ve intervalı yeniden başlat
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stop();
+      } else {
+        dispatch(getFlights());
+        start();
+      }
+    };
+
+    if (!document.hidden) start();
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     // component ekrandan ayrılınca intervalı durdur
     // componenWillUnmount
     return () => {
-      clearInterval(id);
+      stop();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
 
